@@ -1,0 +1,8 @@
+{
+  "name": "itea-fe",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/itea-fe/src",
+  "projectType": "application",
+  "targets": {},
+  "tags": []
+}
