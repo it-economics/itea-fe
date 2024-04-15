@@ -1,9 +1,22 @@
-import { FC } from 'react';
+import {FC, useEffect, useState} from 'react';
+import {Product} from "../../model/Product";
+import {ProductTile} from "./ProductTile";
 
 export const Gallery: FC = () => {
+
+  const [products, setProducts] = useState<Product[]>([])
+
+  useEffect(() => {
+    //fetchData()
+  }, [])
+
+
   return (
-    <div>
-      <h1>Welcome to Gallery!</h1>
-    </div>
+    <>
+      <h1>Products</h1>
+      {products.map(product => (
+        <ProductTile product={product}/>
+      ))}
+    </>
   );
 };
