@@ -28,7 +28,7 @@ export const Gallery: FC = () => {
             <ProductTile product={product}/>
           </Grid>
         ))}
-      </Grid>)
+      </Grid>
     </>
   );
 };
