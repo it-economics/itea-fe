@@ -13,7 +13,7 @@ export const ProductTile: FC<ProductTileProps> = ({product}) => {
   const navigate = useNavigate()
 
   return (
-    <Card onClick={() => navigate(`product/details/${product.id}`)}>
+    <Card onClick={() => navigate(`/product/details/${product.id}`)}>
       <CardHeader
         title={product.name}
       />
