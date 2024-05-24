@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import {Card, CardContent, CardHeader, CardMedia} from "@mui/material";
 import {useNavigate} from "react-router-dom";
-import {Product} from "../../model/Product";
+import {Product} from "../../model/Product/Product";
 import Typography from "@mui/material/Typography";
 
 interface ProductTileProps {
@@ -20,7 +20,7 @@ export const ProductTile: FC<ProductTileProps> = ({product}) => {
       <CardMedia
         component="img"
         height="194"
-        src={product.imageUrl}
+        src={product.imageName} //todo use it to get image
         alt="Concert"
       />
       <CardContent>

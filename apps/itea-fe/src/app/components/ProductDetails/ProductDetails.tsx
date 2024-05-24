@@ -1,16 +1,16 @@
 import {FC, useEffect, useState} from 'react';
 import {Card, CardContent, CardHeader, CardMedia} from "@mui/material";
 import Typography from "@mui/material/Typography";
-import {Product} from "../../model/Product";
+import {Product} from "../../model/Product/Product";
 
 export const ProductDetails: FC = ({Product}) => {
 
   const [product, setProduct] = useState<Product>(
-    {id: '1', name: 'Product 1', description: 'Description 1', price: 100, imageUrl: 'https://via.placeholder.com/150'}
+    {id: '1', name: 'Product 1', description: 'Description 1', price: 100, imageName: 'https://via.placeholder.com/150'}
   )
 
   useEffect(() => {
-    //fetchData()
+    //todo fetchData()
   }, [])
 
   return (
@@ -22,7 +22,7 @@ export const ProductDetails: FC = ({Product}) => {
         <CardMedia
           component="img"
           height="194"
-          src={product.imageUrl}
+          src={product.imageName}
           alt="Concert"
         />
         <CardContent>

@@ -2,16 +2,16 @@ export interface Product {
   id: string;
   name: string;
   description: string;
-  price: number;
-  imageUrl: string;
+  price: number; //in cents
+  imageName: string;
 }
 
-export const convertFromApiProduct = (apiProduct: any): Product => { //todo add type when api was generated
+export const convertFromApiProduct = (apiProduct: any): Product => {
   return {
     id: apiProduct.id,
     name: apiProduct.name,
     description: apiProduct.description,
     price: apiProduct.price,
-    imageUrl: "" //todo get image url either "hardcoded" or add to backend
+    imageName: apiProduct.imageName
   }
 }
