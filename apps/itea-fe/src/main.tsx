@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 
 import App from './app/app';
+import {mockPortalContext} from "./app/mock/portal-context";
 
 const enableMSW = async () => {
   if (process.env.NODE_ENV !== 'development') {
@@ -18,7 +19,7 @@ const root = ReactDOM.createRoot(
 enableMSW().then(() => {
   root.render(
     <StrictMode>
-      <App />
+      <App portalContext={mockPortalContext} />
     </StrictMode>
   );
 });

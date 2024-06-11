@@ -17,18 +17,17 @@ export const Gallery: FC = () => {
 
 
   return (
-    <>
-      <h1>Products</h1>
-      <Grid container spacing={20}
+    <Grid container spacing={20}
             direction="row"
             justifyContent="center"
-            alignItems="center">
+            alignItems="center"
+            paddingTop='2%'
+      >
         {products.map(product => (
           <Grid item xs={'auto'}>
             <ProductTile product={product}/>
           </Grid>
         ))}
       </Grid>
-    </>
   );
 };
