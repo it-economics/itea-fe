@@ -1,13 +1,15 @@
 import * as React from 'react';
-import {alpha, styled} from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import {MainNavigation} from './MainNavigation';
-import {ThemeChangeButton} from "../Theme";
+import { MainNavigation } from './MainNavigation';
+import { ThemeChangeButton } from '../Theme';
+import { Stack } from '@mui/material';
+import { ShoppingCartButton } from '../Cart/ShoppingCartButton';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,28 +54,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export const SearchAppBar = () => {
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar >
+        <Toolbar>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ paddingRight:'10px', display: { xs: 'none', sm: 'block' } }}
+            sx={{ paddingRight: '10px', display: { xs: 'none', sm: 'block' } }}
           >
             ITEA
           </Typography>
           <MainNavigation />
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              flex: 1,
-            }}
-          >
+          <Box sx={{ flexGrow: 1 }} />
+          <Stack direction="row" spacing={1}>
             <Search>
               <SearchIconWrapper>
                 <SearchIcon />
@@ -83,8 +78,9 @@ export const SearchAppBar = () => {
                 inputProps={{ 'aria-label': 'search' }}
               />
             </Search>
-            <ThemeChangeButton/>
-          </Box>
+            <ThemeChangeButton />
+            <ShoppingCartButton />
+          </Stack>
         </Toolbar>
       </AppBar>
     </Box>
