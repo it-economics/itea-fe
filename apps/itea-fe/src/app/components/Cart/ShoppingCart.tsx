@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import { useStoreProducts } from '../../contexts/StoreProductsContext';
-import { Box } from '@mui/material';
-import { ProductTile } from '../Gallery/ProductTile';
+import {FC} from 'react';
+import {useStoreProducts} from '../../contexts/StoreProductsContext';
+import {Grid} from '@mui/material';
+import {ShoppingCartTile} from "./ShoppingCartTile";
 
 const ShoppingCart: FC = () => {
   const { cart } = useStoreProducts();
@@ -9,9 +9,14 @@ const ShoppingCart: FC = () => {
   return (
     <>
       {cart.map((product) => (
-        <Box>
-          <ProductTile product={product} />
-        </Box>
+        <Grid container spacing={20}
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              paddingTop='2%'
+        >
+          <ShoppingCartTile product={product} />
+        </Grid>
       ))}
     </>
   );
