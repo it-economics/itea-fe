@@ -2,7 +2,7 @@
 import {FC, Suspense} from 'react';
 import {Routing} from './Routing';
 import {AppBootstrap, PortalAppProps} from "./AppBootstrap";
-import {ThemeContextProvider} from "./styling/ThemeContext";
+import {ThemeContextProvider} from "./components/Theme";
 
 // TODO add error boundary
 // TODO add proper loading

@@ -7,7 +7,7 @@ import {
   useContext,
   useState,
 } from 'react';
-import {CustomThemeProvider} from "./CustomThemeProvider";
+import {CustomThemeProvider} from "../../styling";
 
 export interface ThemeContext {
   theme: PaletteMode;
