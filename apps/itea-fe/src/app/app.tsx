@@ -2,6 +2,7 @@
 import {FC, Suspense} from 'react';
 import {Routing} from './Routing';
 import {AppBootstrap, PortalAppProps} from "./AppBootstrap";
+import {ThemeContextProvider} from "./styling/ThemeContext";
 
 // TODO add error boundary
 // TODO add proper loading
@@ -9,9 +10,11 @@ import {AppBootstrap, PortalAppProps} from "./AppBootstrap";
 export const App: FC<PortalAppProps> = ({portalContext}) => {
   return (
     <AppBootstrap portalContext={portalContext}>
+      <ThemeContextProvider>
       <Suspense fallback={<span>Loading ...</span>}>
         <Routing/>
       </Suspense>
+      </ThemeContextProvider>
     </AppBootstrap>
   );
 }

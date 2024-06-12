@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 
 import App from './app/app';
-import {mockPortalContext} from "./app/mock/portal-context";
+import {mockPortalContext} from "./mocks/portal-context";
 
 const enableMSW = async () => {
   if (process.env.NODE_ENV !== 'development') {

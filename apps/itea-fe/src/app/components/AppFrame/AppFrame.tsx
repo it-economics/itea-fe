@@ -1,5 +1,7 @@
 import * as React from 'react';
 import {alpha, styled} from '@mui/material/styles';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import {MainNavigation} from './MainNavigation';
+import {IconButton, Tooltip} from "@mui/material";
+import {useThemeContext} from "../../styling/ThemeContext";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -51,6 +55,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export const SearchAppBar = () => {
+  const { isDark, toggleTheme } = useThemeContext();
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -64,15 +70,29 @@ export const SearchAppBar = () => {
             ITEA
           </Typography>
           <MainNavigation />
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              flex: 1,
+            }}
+          >
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+            <Tooltip title="Toggle theme">
+              <IconButton size="small" onClick={() => toggleTheme()}>
+                {isDark ? <LightModeIcon /> : <DarkModeIcon />}
+              </IconButton>
+            </Tooltip>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>

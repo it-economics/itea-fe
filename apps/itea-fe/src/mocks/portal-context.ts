@@ -1,4 +1,4 @@
-import {PortalContext} from "../AppBootstrap";
+import {PortalContext} from "../app/AppBootstrap";
 
 export const mockPortalContext: PortalContext = {
   basePath: '/',
