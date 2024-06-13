@@ -1,22 +1,14 @@
-import {FC} from 'react';
-import {useStoreProducts} from '../../contexts/StoreProductsContext';
-import {Grid, Typography} from '@mui/material';
-import {ShoppingCartTile} from './ShoppingCartTile';
-import {ShoppingCartSum} from "./ShoppingCartSum";
+import { FC } from 'react';
+import { useStoreProducts } from '../../contexts/StoreProductsContext';
+import { Grid, Typography } from '@mui/material';
+import { ShoppingCartTile } from './ShoppingCartTile';
+import { ShoppingCartSum } from './ShoppingCartSum';
 
 const ShoppingCart: FC = () => {
-  const {cart, sum} = useStoreProducts();
+  const { cart, sum } = useStoreProducts();
 
   return (
-    <Grid
-      container
-      spacing={5}
-      sx={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '2%',
-      }}
-    >
+    <Grid container spacing={5}>
       {cart.length ? (
         cart.map((cartItem) => (
           <Grid item key={cartItem.product.id}>
@@ -28,18 +20,25 @@ const ShoppingCart: FC = () => {
           </Grid>
         ))
       ) : (
-        <Grid item>
+        <Grid
+          item
+          xs={12}
+          sx={() => ({
+            textAlign: 'center',
+          })}
+        >
           <Typography>No products in the cart</Typography>
         </Grid>
       )}
-      <Grid sx={{
-        bottom: 0,
-        right: 100,
-        width: '100%',
-        height: 100,
-        textAlign: 'right'
-      }}>
-        <ShoppingCartSum sum={sum}/>
+      <Grid
+        item
+        xs={12}
+        sx={(theme) => ({
+          textAlign: 'right',
+          px: theme.spacing(2),
+        })}
+      >
+        <ShoppingCartSum sum={sum} />
       </Grid>
     </Grid>
   );
