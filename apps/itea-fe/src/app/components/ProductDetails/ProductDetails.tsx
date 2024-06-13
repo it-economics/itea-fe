@@ -1,4 +1,3 @@
-import { AspectRatio } from '@mui/icons-material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import {
   Box,
@@ -30,24 +29,22 @@ export const ProductDetails: FC = () => {
         justifyContent: 'center',
       }}
     >
-      {isLoading ? (
+      {isLoading || !product ? (
         <CircularProgress />
       ) : (
         <Card sx={(theme) => ({ width: 320, padding: theme.spacing() })}>
-          <Typography>{product?.name}</Typography>
-          <AspectRatio>
-            <img
-              src={product?.imageName ?? ''}
-              srcSet={product?.imageName ?? ''}
-              loading="lazy"
-              alt=""
-            />
-          </AspectRatio>
+          <Typography>{product.name}</Typography>
+
+          <img
+            src={product.imageName}
+            alt={product.name}
+            style={{ maxWidth: '100%' }}
+          />
+
           <CardContent>
-            <Typography>{product?.description}</Typography>
-            <Typography>Price:</Typography>
-            <Typography fontSize="lg" fontWeight="lg">
-              {product?.price}
+            <Typography>{product.description}</Typography>
+            <Typography>
+              Price: <b>{product.price} &#8364;</b>
             </Typography>
           </CardContent>
           <CardActions>
