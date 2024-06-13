@@ -1,10 +1,11 @@
-import { FC } from 'react';
-import { useStoreProducts } from '../../contexts/StoreProductsContext';
-import { Grid, Typography } from '@mui/material';
-import { ShoppingCartTile } from './ShoppingCartTile';
+import {FC} from 'react';
+import {useStoreProducts} from '../../contexts/StoreProductsContext';
+import {Grid, Typography} from '@mui/material';
+import {ShoppingCartTile} from './ShoppingCartTile';
+import {ShoppingCartSum} from "./ShoppingCartSum";
 
 const ShoppingCart: FC = () => {
-  const { cart } = useStoreProducts();
+  const {cart, sum} = useStoreProducts();
 
   return (
     <Grid
@@ -31,6 +32,15 @@ const ShoppingCart: FC = () => {
           <Typography>No products in the cart</Typography>
         </Grid>
       )}
+      <Grid sx={{
+        bottom: 0,
+        right: 100,
+        width: '100%',
+        height: 100,
+        textAlign: 'right'
+      }}>
+        <ShoppingCartSum sum={sum}/>
+      </Grid>
     </Grid>
   );
 };
