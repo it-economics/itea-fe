@@ -11,9 +11,9 @@ import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useStoreProducts } from '../../contexts/StoreProductsContext';
-import { useProduct } from '../../product';
+import { useProduct } from '../hooks/useProducts';
 
-export const ProductDetails: FC = () => {
+const ProductDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
   const { add2Cart } = useStoreProducts();
 
@@ -69,3 +69,5 @@ export const ProductDetails: FC = () => {
     </Box>
   );
 };
+
+export default ProductDetails;

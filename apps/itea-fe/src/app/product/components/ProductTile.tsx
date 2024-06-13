@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { Product } from '../../model/Product/Product';
+import { Product } from '../model/Product';
 
 interface ProductTileProps {
   product: Product;

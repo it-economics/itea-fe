@@ -3,7 +3,7 @@ import { Button, Card, CardActions, CardContent } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 import { useStoreProducts } from '../../contexts/StoreProductsContext';
-import { Product } from '../../model/Product/Product';
+import { Product } from '../../product';
 
 interface ProductTileProps {
   product: Product;

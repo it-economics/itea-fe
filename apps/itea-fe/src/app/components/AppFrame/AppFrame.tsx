@@ -9,7 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { MainNavigation } from './MainNavigation';
 import { ThemeChangeButton } from '../../theme';
 import { Stack } from '@mui/material';
-import { ShoppingCartButton } from '../Cart/ShoppingCartButton';
+import { ShoppingCartButton } from '../ShoppingCart/ShoppingCartButton';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',

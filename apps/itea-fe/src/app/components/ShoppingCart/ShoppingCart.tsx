@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import { ShoppingCartTile } from './ShoppingCartTile';
 import { ShoppingCartSum } from './ShoppingCartSum';
 
-const ShoppingCart: FC = () => {
+export const ShoppingCart: FC = () => {
   const { cart, sum } = useStoreProducts();
 
   return (
@@ -45,5 +45,3 @@ const ShoppingCart: FC = () => {
     </Box>
   );
 };
-
-export default ShoppingCart;

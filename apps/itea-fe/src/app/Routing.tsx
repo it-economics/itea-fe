@@ -6,9 +6,11 @@ import {
   createBrowserRouter,
 } from 'react-router-dom';
 import { SearchAppBar } from './components/AppFrame';
-const ProductDetails = lazy(() => import('./components/ProductDetails'));
+const ProductDetails = lazy(
+  () => import('./product/components/ProductDetails')
+);
 const Gallery = lazy(() => import('./components/Gallery'));
-const ShoppingCart = lazy(() => import('./components/Cart/ShoppingCart'));
+const ShoppingCart = lazy(() => import('./components/ShoppingCart'));
 
 // TODO add 404 page
 // TODO add errorElement
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'product/details/:id',
-        element: <ProductDetails/>,
+        element: <ProductDetails />,
       },
       {
         path: 'shopping-cart',
