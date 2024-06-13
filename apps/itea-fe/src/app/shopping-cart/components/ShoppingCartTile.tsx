@@ -30,7 +30,7 @@ export const ShoppingCartTile: FC<ProductTileProps> = ({
           Price: <b>{product.price} &#8364;</b>
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ justifyContent: 'right' }}>
         <Button
           variant="contained"
           size="medium"
