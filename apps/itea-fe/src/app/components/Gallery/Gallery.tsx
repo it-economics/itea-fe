@@ -16,7 +16,7 @@ export const Gallery: FC = () => {
       paddingTop="2%"
     >
       {products?.map((product) => (
-        <Grid item xs={'auto'}>
+        <Grid item xs={'auto'} key={product.id}>
           <ProductTile product={product} />
         </Grid>
       ))}
