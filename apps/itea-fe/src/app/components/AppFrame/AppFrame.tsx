@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { MainNavigation } from './MainNavigation';
-import { ThemeChangeButton } from '../Theme';
+import { ThemeChangeButton } from '../../theme';
 import { Stack } from '@mui/material';
 import { ShoppingCartButton } from '../Cart/ShoppingCartButton';
 

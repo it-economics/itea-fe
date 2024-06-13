@@ -5,8 +5,7 @@ import {
   ThemeProvider,
 } from '@mui/material';
 import { FC, PropsWithChildren, useMemo } from 'react';
-import { componentsFactory } from './components';
-import { paletteFactory } from './palette';
+import { componentsFactory, paletteFactory } from '../styling';
 
 interface ThemeProviderProps extends Required<PropsWithChildren> {
   theme: PaletteMode;

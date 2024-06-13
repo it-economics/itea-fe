@@ -1,25 +1,23 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { FC, Suspense } from 'react';
 import { Routing } from './Routing';
-import { AppBootstrap, PortalAppProps } from './AppBootstrap';
-import { ThemeContextProvider } from './components/Theme';
+
 import { Box, CircularProgress } from '@mui/material';
 import { StoreProductsProvider } from './contexts/StoreProductsContext';
+import { ThemeContextProvider } from './theme';
 
-export const App: FC<PortalAppProps> = ({ portalContext }) => {
+export const App: FC = () => {
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AppBootstrap portalContext={portalContext}>
-        <ThemeContextProvider>
-          <Suspense fallback={<AppLoading />}>
-            <StoreProductsProvider>
-              <Routing />
-            </StoreProductsProvider>
-          </Suspense>
-        </ThemeContextProvider>
-      </AppBootstrap>
+      <ThemeContextProvider>
+        <Suspense fallback={<AppLoading />}>
+          <StoreProductsProvider>
+            <Routing />
+          </StoreProductsProvider>
+        </Suspense>
+      </ThemeContextProvider>
     </QueryClientProvider>
   );
 };
