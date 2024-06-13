@@ -1,5 +1,8 @@
 # IteaFe
 
+This is an example project for a frontend application using React and TypeScript.
+Different brnches contain starting points for different coding dojos.
+
 ## Install dependencies
 
 ```shell
@@ -25,17 +28,6 @@ yarn build
 ```
 
 # TODOs
-
-## Add routing
-
-```
-/gallery
-/product/details/:id
-```
-
-## Application Frame
-
-Add toolbar, brand icon
 
 ## i18n
 
