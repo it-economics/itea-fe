@@ -1,32 +1,25 @@
-import {FC, useEffect, useState} from 'react';
-import {ProductTile} from "./ProductTile";
-import {Grid} from "@mui/material";
-import {useGetProducts} from "../../model/Product/hooks/useGetProducts";
-import {Product} from "../../model/Product/Product";
+import { Grid } from '@mui/material';
+import { FC } from 'react';
+import { useGetProducts } from '../../model/Product/hooks/useGetProducts';
+import { ProductTile } from './ProductTile';
 
 export const Gallery: FC = () => {
+  const { data: products, isLoading } = useGetProducts();
 
-  const [products, setProducts] = useState<Product[]>([])
-  const {data, isLoading} = useGetProducts()
-
-  useEffect(() => {
-    setProducts(data)
-  }, [data])
-
-  const dataIsLoaded = !isLoading && data.length > 0
-
-  return dataIsLoaded ? (
-    <Grid container spacing={20}
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          paddingTop='2%'
+  return isLoading ? null : (
+    <Grid
+      container
+      spacing={5}
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      paddingTop="2%"
     >
-      {products?.map(product => (
+      {products?.map((product) => (
         <Grid item xs={'auto'}>
-          <ProductTile product={product}/>
+          <ProductTile product={product} />
         </Grid>
       ))}
     </Grid>
-  ) : null
+  );
 };
