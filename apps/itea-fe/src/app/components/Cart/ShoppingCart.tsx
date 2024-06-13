@@ -18,7 +18,7 @@ const ShoppingCart: FC = () => {
     >
       {cart.length ? (
         cart.map((cartItem) => (
-          <Grid item>
+          <Grid item key={cartItem.product.id}>
             <ShoppingCartTile
               product={cartItem.product}
               quantity={cartItem.quantity}
