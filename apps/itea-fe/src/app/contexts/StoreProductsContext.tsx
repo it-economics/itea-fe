@@ -39,7 +39,10 @@ export const StoreProductsProvider: FC<PropsWithChildren> = ({ children }) => {
   const { data: products, isLoading } = useGetProducts();
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  const sum = cart.reduce((acc, item) => acc + item.product.price, 0);
+  const sum = cart.reduce(
+    (acc, item) => acc + item.quantity * item.product.price,
+    0
+  );
 
   return (
     <StoreProductsContext.Provider
