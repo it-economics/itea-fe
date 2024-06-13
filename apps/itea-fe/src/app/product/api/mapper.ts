@@ -1,10 +1,4 @@
-export interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number; //in cents
-  imageName: string;
-}
+import { Product } from '../model/Product';
 
 export const convertFromApiProduct = (apiProduct: any): Product => {
   return {
@@ -12,6 +6,6 @@ export const convertFromApiProduct = (apiProduct: any): Product => {
     name: apiProduct.name,
     description: apiProduct.description,
     price: apiProduct.price,
-    imageName: apiProduct.imageName
-  }
-}
+    imageName: apiProduct.imageName,
+  };
+};

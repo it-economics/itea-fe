@@ -11,13 +11,13 @@ import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useStoreProducts } from '../../contexts/StoreProductsContext';
-import { useGetProduct } from '../../model/Product/hooks/useGetProducts';
+import { useProduct } from '../../product';
 
 export const ProductDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
   const { add2Cart } = useStoreProducts();
 
-  const { data: product, isLoading } = useGetProduct(id || '');
+  const { data: product, isLoading } = useProduct(id || '');
 
   return (
     <Box

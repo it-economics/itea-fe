@@ -5,8 +5,7 @@ import {
   useContext,
   useState,
 } from 'react';
-import { Product } from '../model/Product/Product';
-import { useGetProducts } from '../model/Product/hooks/useGetProducts';
+import { Product, useProducts } from '../product';
 
 type CartItem = {
   product: Product;
@@ -36,7 +35,7 @@ const StoreProductsContext = createContext<StoreProductsContextType>({
 });
 
 export const StoreProductsProvider: FC<PropsWithChildren> = ({ children }) => {
-  const { data: products, isLoading } = useGetProducts();
+  const { data: products, isLoading } = useProducts();
   const [cart, setCart] = useState<CartItem[]>([]);
 
   const sum = cart.reduce(
