@@ -1,11 +1,11 @@
-import { FC } from 'react';
-import { useStoreProducts } from '../../contexts/StoreProductsContext';
 import { Box, Grid, Typography } from '@mui/material';
-import { ShoppingCartTile } from './ShoppingCartTile';
+import { FC } from 'react';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 import { ShoppingCartSum } from './ShoppingCartSum';
+import { ShoppingCartTile } from './ShoppingCartTile';
 
 export const ShoppingCart: FC = () => {
-  const { cart, sum } = useStoreProducts();
+  const { cart, sum } = useShoppingCart();
 
   return (
     <Box sx={{ margin: '2rem' }}>

@@ -10,7 +10,7 @@ const ProductDetails = lazy(
   () => import('./product/components/ProductDetails')
 );
 const Gallery = lazy(() => import('./components/Gallery'));
-const ShoppingCart = lazy(() => import('./components/ShoppingCart'));
+const ShoppingCart = lazy(() => import('./shopping-cart/components'));
 
 // TODO add 404 page
 // TODO add errorElement

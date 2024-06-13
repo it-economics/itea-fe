@@ -5,6 +5,7 @@ import { Routing } from './Routing';
 import { Box, CircularProgress } from '@mui/material';
 import { StoreProductsProvider } from './contexts/StoreProductsContext';
 import { ThemeContextProvider } from './theme';
+import { ShoppingCartContextProvider } from './shopping-cart';
 
 export const App: FC = () => {
   const queryClient = new QueryClient();
@@ -14,7 +15,9 @@ export const App: FC = () => {
       <ThemeContextProvider>
         <Suspense fallback={<AppLoading />}>
           <StoreProductsProvider>
-            <Routing />
+            <ShoppingCartContextProvider>
+              <Routing />
+            </ShoppingCartContextProvider>
           </StoreProductsProvider>
         </Suspense>
       </ThemeContextProvider>

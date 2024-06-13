@@ -2,8 +2,8 @@ import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import { Button, Card, CardActions, CardContent } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
-import { useStoreProducts } from '../../contexts/StoreProductsContext';
 import { Product } from '../../product';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 interface ProductTileProps {
   product: Product;
@@ -14,7 +14,7 @@ export const ShoppingCartTile: FC<ProductTileProps> = ({
   product,
   quantity,
 }) => {
-  const { removeFromCart } = useStoreProducts();
+  const { removeFromCart } = useShoppingCart();
 
   return (
     <Card sx={(theme) => ({ width: 320, padding: theme.spacing() })}>

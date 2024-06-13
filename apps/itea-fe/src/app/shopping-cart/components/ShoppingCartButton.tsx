@@ -1,11 +1,11 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge, IconButton, Tooltip } from '@mui/material';
 import { FC } from 'react';
-import { useStoreProducts } from '../../contexts/StoreProductsContext';
 import { NavLink } from 'react-router-dom';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 export const ShoppingCartButton: FC = () => {
-  const { cart } = useStoreProducts();
+  const { cart } = useShoppingCart();
 
   const cartItemsCount = cart.reduce(
     (acc, cartItem) => acc + cartItem.quantity,

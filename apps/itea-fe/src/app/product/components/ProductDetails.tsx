@@ -10,12 +10,12 @@ import {
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import { useStoreProducts } from '../../contexts/StoreProductsContext';
 import { useProduct } from '../hooks/useProducts';
+import { useShoppingCart } from '../../shopping-cart';
 
 const ProductDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { add2Cart } = useStoreProducts();
+  const { add2Cart } = useShoppingCart();
 
   const { data: product, isLoading } = useProduct(id || '');
 
