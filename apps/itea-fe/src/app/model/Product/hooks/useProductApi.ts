@@ -17,7 +17,7 @@ export const handleRestCall  = async (requestInput: RequestInfo | URL, requestIn
 
 
 export const useProductApi = () => {
-    const get = async (id: number) => {
+    const get = async (id?: string) => {
       //todo use handler
       const result = await handleRestCall(productEndpoint + "/" + id, {
         method: 'get',

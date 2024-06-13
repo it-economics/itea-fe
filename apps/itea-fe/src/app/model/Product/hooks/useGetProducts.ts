@@ -8,7 +8,7 @@ export const useGetProducts = (): UseQueryResult<Product[]> => {
     const { getAll } = useProductApi()
     return useQuery({queryKey, queryFn: () => getAll()})
 }
-export const useGetProduct = (id: number): UseQueryResult<Product[]> => {
+export const useGetProduct = (id?: string): UseQueryResult<Product> => {
     const { get } = useProductApi()
     return useQuery({queryKey, queryFn: () => get(id)})
 }

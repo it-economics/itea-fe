@@ -4,17 +4,20 @@ import Typography from "@mui/material/Typography";
 import {Product} from "../../model/Product/Product";
 import {AspectRatio} from "@mui/icons-material";
 import {useStoreProducts} from "../../contexts/StoreProductsContext";
+import {useGetProduct} from "../../model/Product/hooks/useGetProducts";
+import {useParams} from "react-router-dom";
 
 export const ProductDetails: FC = () => {
+  const {id} = useParams<{id: string}>()
   const { add2Cart } = useStoreProducts();
 
-  const [product, setProduct] = useState<Product>(
-    {id: '1', name: 'Product 1', description: 'Description 1', price: 100, imageName: 'https://via.placeholder.com/150'}
-  )
+  const [product, setProduct] = useState<Product | undefined>()
+
+  const {data} = useGetProduct(id)
 
   useEffect(() => {
-    //todo fetchData()
-  }, [])
+    setProduct(data)
+  }, [data])
 
   return (
     <Grid
@@ -27,22 +30,22 @@ export const ProductDetails: FC = () => {
     >
       <Card sx={{ width: 320 }}>
         <div>
-          <Typography level="title-lg">{product.name}</Typography>
+          <Typography level="title-lg">{product?.name}</Typography>
         </div>
         <AspectRatio minHeight="120px" maxHeight="200px">
           <img
-            src="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286"
-            srcSet="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286&dpr=2 2x"
+            src={product?.imageName ?? ''}
+            srcSet={product?.imageName ?? ''}
             loading="lazy"
             alt=""
           />
         </AspectRatio>
         <CardContent orientation="horizontal">
           <div>
-            <Typography level="body-xs">{product.description}</Typography>
+            <Typography level="body-xs">{product?.description}</Typography>
             <Typography level="body-xs">Price:</Typography>
             <Typography fontSize="lg" fontWeight="lg">
-              {product.price}
+              {product?.price}
             </Typography>
           </div>
           <Button
