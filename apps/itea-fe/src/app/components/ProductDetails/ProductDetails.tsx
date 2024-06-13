@@ -33,7 +33,7 @@ export const ProductDetails: FC = () => {
         <CircularProgress />
       ) : (
         <Card sx={(theme) => ({ width: 320, padding: theme.spacing() })}>
-          <Typography>{product.name}</Typography>
+          <Typography variant="h5">{product.name}</Typography>
 
           <img
             src={product.imageName}

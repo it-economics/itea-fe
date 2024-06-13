@@ -13,8 +13,14 @@ export const ProductTile: FC<ProductTileProps> = ({ product }) => {
       to={`/product/details/${product.id}`}
       style={{ textDecoration: 'none' }}
     >
-      <Card sx={(theme) => ({ width: 320, padding: theme.spacing() })}>
-        <Typography>{product.name}</Typography>
+      <Card
+        sx={(theme) => ({
+          width: 320,
+          padding: theme.spacing(),
+          textAlign: 'center',
+        })}
+      >
+        <Typography variant="h5">{product.name}</Typography>
         <img
           src={product.imageName}
           alt={product.name}
