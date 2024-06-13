@@ -47,14 +47,13 @@ const ProductDetails: FC = () => {
               Price: <b>{product.price} &#8364;</b>
             </Typography>
           </CardContent>
-          <CardActions>
+          <CardActions sx={{ justifyContent: 'right' }}>
             <Button
               variant="contained"
               size="medium"
               color="primary"
               startIcon={<AddShoppingCartIcon />}
               aria-label="Add to Cart"
-              sx={{ ml: 'auto', alignSelf: 'center', fontWeight: 600 }}
               onClick={() => {
                 if (product) {
                   add2Cart(product);
