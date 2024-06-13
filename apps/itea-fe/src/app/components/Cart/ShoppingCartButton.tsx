@@ -7,6 +7,11 @@ import { NavLink } from 'react-router-dom';
 export const ShoppingCartButton: FC = () => {
   const { cart } = useStoreProducts();
 
+  const cartItemsCount = cart.reduce(
+    (acc, cartItem) => acc + cartItem.quantity,
+    0
+  );
+
   return (
     <Tooltip title="Cart">
       <NavLink
@@ -16,7 +21,7 @@ export const ShoppingCartButton: FC = () => {
         }}
       >
         <IconButton size="medium">
-          <Badge badgeContent={cart.length} color="primary">
+          <Badge badgeContent={cartItemsCount} color="primary">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>

@@ -17,9 +17,13 @@ const ShoppingCart: FC = () => {
       }}
     >
       {cart.length ? (
-        cart.map((product) => (
+        cart.map((cartItem) => (
           <Grid item>
-            <ShoppingCartTile product={product} key={product.id} />
+            <ShoppingCartTile
+              product={cartItem.product}
+              quantity={cartItem.quantity}
+              key={cartItem.product.id}
+            />
           </Grid>
         ))
       ) : (
