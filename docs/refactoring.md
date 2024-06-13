@@ -2,25 +2,24 @@
 
 ## Establish a Clear Goal
 
-Objective: Define what you aim to achieve with refactoring (e.g., improved readability, performance enhancements, reduced complexity).
-Plan: Outline the steps and stages of the refactoring process.
+Define what you aim to achieve with refactoring (e.g., improved readability, reduced complexity).
 
 ## Incremental Refactoring
 
-Small Steps: Make small, incremental changes rather than large, sweeping modifications.
-Commit Often: Commit changes frequently to keep track of progress and facilitate rollbacks if necessary.
+Make small, incremental changes rather than large, sweeping modifications - commit changes frequently.
 
 ## Simplify Code
 
-Extract Methods: Break down large methods into smaller, more manageable ones.
-Remove Dead Code: Eliminate unused code and redundant functions.
-Simplify Conditionals: Refactor complex conditional logic into simpler, more readable constructs.
+Break down large methods into smaller, more manageable ones.
 
-## Refactor for Reusability
+## Remove Dead Code
 
-DRY Principle: Avoid code duplication by abstracting common functionality.
-Generic Methods: Use generic methods or templates to handle similar tasks across different parts of the codebase.
+Eliminate unused code and redundant functions.
 
-## Refactor As You Go
+## DRY Principle
 
-Boy Scout Rule: Always leave the codebase cleaner than you found it. Apply small refactoring changes whenever you work on the code.
+Avoid code duplication by abstracting common functionality.
+
+## Boy Scout Rule
+
+Always leave the codebase cleaner than you found it.
