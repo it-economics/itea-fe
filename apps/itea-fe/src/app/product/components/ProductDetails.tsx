@@ -1,17 +1,11 @@
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CircularProgress,
-} from '@mui/material';
+import { Box, Button, CircularProgress } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import { useProduct } from '../hooks/useProducts';
+import { Tile } from '../../common';
 import { useShoppingCart } from '../../shopping-cart';
+import { useProduct } from '../hooks/useProducts';
 
 const ProductDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -32,22 +26,9 @@ const ProductDetails: FC = () => {
       {isLoading || !product ? (
         <CircularProgress />
       ) : (
-        <Card sx={(theme) => ({ width: 320, padding: theme.spacing() })}>
-          <Typography variant="h5">{product.name}</Typography>
-
-          <img
-            src={product.imageName}
-            alt={product.name}
-            style={{ maxWidth: '100%' }}
-          />
-
-          <CardContent>
-            <Typography>{product.description}</Typography>
-            <Typography>
-              Price: <b>{product.price} &#8364;</b>
-            </Typography>
-          </CardContent>
-          <CardActions sx={{ justifyContent: 'right' }}>
+        <Tile
+          title={product.name}
+          actions={
             <Button
               variant="contained"
               size="medium"
@@ -62,8 +43,19 @@ const ProductDetails: FC = () => {
             >
               Add to Cart
             </Button>
-          </CardActions>
-        </Card>
+          }
+        >
+          <img
+            src={product.imageName}
+            alt={product.name}
+            style={{ maxWidth: '100%' }}
+          />
+
+          <Typography>{product.description}</Typography>
+          <Typography>
+            Price: <b>{product.price} &#8364;</b>
+          </Typography>
+        </Tile>
       )}
     </Box>
   );

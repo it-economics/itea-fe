@@ -1,6 +1,7 @@
-import { Card, CardContent, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { Tile } from '../../common';
 import { Product } from '../model/Product';
 
 interface ProductTileProps {
@@ -13,26 +14,17 @@ export const ProductTile: FC<ProductTileProps> = ({ product }) => {
       to={`/product/details/${product.id}`}
       style={{ textDecoration: 'none' }}
     >
-      <Card
-        sx={(theme) => ({
-          width: 320,
-          padding: theme.spacing(),
-          textAlign: 'center',
-        })}
-      >
-        <Typography variant="h5">{product.name}</Typography>
+      <Tile title={product.name}>
         <img
           src={product.imageName}
           alt={product.name}
           style={{ maxWidth: '50%' }}
         />
-        <CardContent>
-          <Typography>{product.description}</Typography>
-          <Typography>
-            Price: <b>{product.price} &#8364;</b>
-          </Typography>
-        </CardContent>
-      </Card>
+        <Typography>{product.description}</Typography>
+        <Typography>
+          Price: <b>{product.price} &#8364;</b>
+        </Typography>
+      </Tile>
     </Link>
   );
 };

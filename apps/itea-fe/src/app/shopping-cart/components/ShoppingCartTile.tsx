@@ -1,7 +1,8 @@
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
-import { Button, Card, CardActions, CardContent } from '@mui/material';
+import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
+import { Tile } from '../../common';
 import { Product } from '../../product';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
@@ -17,20 +18,9 @@ export const ShoppingCartTile: FC<ProductTileProps> = ({
   const { removeFromCart } = useShoppingCart();
 
   return (
-    <Card sx={(theme) => ({ width: 320, padding: theme.spacing() })}>
-      <CardContent>
-        <Typography variant="h5">{`${product.name}`}</Typography>
-        {quantity > 1 && <Typography>Quantity: {quantity}</Typography>}
-        <img
-          src={product.imageName}
-          alt={product.name}
-          style={{ maxWidth: '100%' }}
-        />
-        <Typography>
-          Price: <b>{product.price} &#8364;</b>
-        </Typography>
-      </CardContent>
-      <CardActions sx={{ justifyContent: 'right' }}>
+    <Tile
+      title={product.name}
+      actions={
         <Button
           variant="contained"
           size="medium"
@@ -41,7 +31,17 @@ export const ShoppingCartTile: FC<ProductTileProps> = ({
         >
           Remove from Cart
         </Button>
-      </CardActions>
-    </Card>
+      }
+    >
+      <img
+        src={product.imageName}
+        alt={product.name}
+        style={{ maxWidth: '50%' }}
+      />
+      <Typography>
+        Price: <b>{product.price} &#8364;</b>
+      </Typography>
+      {quantity > 1 && <Typography>Quantity: {quantity}</Typography>}
+    </Tile>
   );
 };
