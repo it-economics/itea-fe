@@ -1,10 +1,10 @@
 import { CircularProgress, Grid, Typography } from '@mui/material';
 import { FC } from 'react';
-import { useGetProducts } from '../../model/Product/hooks/useGetProducts';
+import { useStoreProducts } from '../../contexts/StoreProductsContext';
 import { ProductTile } from './ProductTile';
 
 export const Gallery: FC = () => {
-  const { data: products, isLoading } = useGetProducts();
+  const { products, isLoading } = useStoreProducts();
 
   return isLoading ? (
     <CircularProgress />

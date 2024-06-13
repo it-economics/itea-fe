@@ -1,48 +1,42 @@
-import {Button, Card, CardContent} from '@mui/material';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import { Button, Card, CardActions, CardContent } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import {FC} from 'react';
-import {Product} from '../../model/Product/Product';
-import {AspectRatio} from "@mui/icons-material";
-import {useStoreProducts} from "../../contexts/StoreProductsContext";
+import { FC } from 'react';
+import { useStoreProducts } from '../../contexts/StoreProductsContext';
+import { Product } from '../../model/Product/Product';
 
 interface ProductTileProps {
   product: Product;
 }
 
-export const ShoppingCartTile: FC<ProductTileProps> = ({product}) => {
+export const ShoppingCartTile: FC<ProductTileProps> = ({ product }) => {
   const { removeFromCart } = useStoreProducts();
 
   return (
-    <Card sx={{ width: 320 }}>
-      <div>
-        <Typography level="title-lg">{product.name}</Typography>
-      </div>
-      <AspectRatio minHeight="120px" maxHeight="200px">
+    <Card sx={(theme) => ({ width: 320, padding: theme.spacing() })}>
+      <CardContent>
+        <Typography variant="h5">{product.name}</Typography>
         <img
-          src="../../../assets/images/pexels-colour-creation-28649-112811.jpg"
-          loading="lazy"
-          alt="../../../assets/images/pexels-colour-creation-28649-112811.jpg"
+          src={product.imageName}
+          alt={product.name}
+          style={{ maxWidth: '100%' }}
         />
-      </AspectRatio>
-      <CardContent orientation="horizontal">
-        <div>
-          <Typography level="body-xs">{product.description}</Typography>
-          <Typography level="body-xs">Price:</Typography>
-          <Typography fontSize="lg" fontWeight="lg">
-            {product.price}
-          </Typography>
-        </div>
+        <Typography>
+          Price: <b>{product.price} &#8364;</b>
+        </Typography>
+      </CardContent>
+      <CardActions>
         <Button
-          variant="solid"
-          size="md"
+          variant="contained"
+          size="medium"
           color="primary"
-          aria-label="Add to Cart"
-          sx={{ ml: 'auto', alignSelf: 'center', fontWeight: 600 }}
+          aria-label="Remove from Cart"
           onClick={() => removeFromCart(product.id)}
+          startIcon={<RemoveShoppingCartIcon />}
         >
           Remove from Cart
         </Button>
-      </CardContent>
+      </CardActions>
     </Card>
   );
 };

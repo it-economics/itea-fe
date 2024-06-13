@@ -1,13 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { FC, Suspense } from 'react';
 import { Routing } from './Routing';
 import { AppBootstrap, PortalAppProps } from './AppBootstrap';
 import { ThemeContextProvider } from './components/Theme';
 import { Box, CircularProgress } from '@mui/material';
-
-// TODO add error boundary
-// TODO add proper loading
+import { StoreProductsProvider } from './contexts/StoreProductsContext';
 
 export const App: FC<PortalAppProps> = ({ portalContext }) => {
   const queryClient = new QueryClient();
@@ -17,7 +14,9 @@ export const App: FC<PortalAppProps> = ({ portalContext }) => {
       <AppBootstrap portalContext={portalContext}>
         <ThemeContextProvider>
           <Suspense fallback={<AppLoading />}>
-            <Routing />
+            <StoreProductsProvider>
+              <Routing />
+            </StoreProductsProvider>
           </Suspense>
         </ThemeContextProvider>
       </AppBootstrap>

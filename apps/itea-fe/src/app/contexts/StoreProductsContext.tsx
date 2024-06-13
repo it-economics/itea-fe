@@ -10,6 +10,7 @@ import { useGetProducts } from '../model/Product/hooks/useGetProducts';
 
 type StoreProductsContextType = {
   products: Product[];
+  isLoading: boolean;
   cart: Product[];
   sum: number;
   add2Cart: (product: Product) => void;
@@ -22,6 +23,7 @@ const noop = () => {
 
 const StoreProductsContext = createContext<StoreProductsContextType>({
   products: [],
+  isLoading: false,
   cart: [],
   sum: 0,
   add2Cart: noop,
@@ -29,7 +31,7 @@ const StoreProductsContext = createContext<StoreProductsContextType>({
 });
 
 export const StoreProductsProvider: FC<PropsWithChildren> = ({ children }) => {
-  const { data: products } = useGetProducts();
+  const { data: products, isLoading } = useGetProducts();
   const [cart, setCart] = useState<Product[]>([]);
 
   const sum = cart.reduce((acc, product) => acc + product.price, 0);
@@ -38,6 +40,7 @@ export const StoreProductsProvider: FC<PropsWithChildren> = ({ children }) => {
     <StoreProductsContext.Provider
       value={{
         products: products || [],
+        isLoading,
         cart,
         sum,
         add2Cart: (product) => setCart((prev) => [...prev, product]),
