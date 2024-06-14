@@ -1,6 +1,6 @@
 import { CircularProgress, Grid, Typography } from '@mui/material';
 import { FC } from 'react';
-import { useStoreProducts } from '../../contexts/StoreProductsContext';
+import { useStoreProducts } from '../../product';
 import { ProductTile } from '../../product/components/ProductTile';
 
 export const Gallery: FC = () => {

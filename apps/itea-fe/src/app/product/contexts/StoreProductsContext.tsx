@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren, createContext, useContext } from 'react';
-import { Product, useProducts } from '../product';
+import { useProducts } from '../hooks/useProducts';
+import { Product } from '../model/Product';
 
 type StoreProductsContextType = {
   products: Product[];

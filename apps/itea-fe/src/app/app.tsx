@@ -3,7 +3,7 @@ import { FC, Suspense } from 'react';
 import { Routing } from './Routing';
 
 import { Box, CircularProgress } from '@mui/material';
-import { StoreProductsProvider } from './contexts/StoreProductsContext';
+import { StoreProductsProvider } from './product';
 import { ThemeContextProvider } from './theme';
 import { ShoppingCartContextProvider } from './shopping-cart';
 
