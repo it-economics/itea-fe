@@ -11,7 +11,7 @@ Functional components are simpler and more concise compared to class components.
 #### Example:
 
 ```tsx
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 // Functional component
 const Greeting: FC<{ name: string }> = ({ name }) => <h1>Hello, {name}!</h1>;
@@ -29,10 +29,10 @@ React emphasizes the use of composition over inheritance. This means building co
 **Imperative Approach:**
 
 ```javascript
-const button = document.createElement("button");
-button.innerText = "Click Me";
+const button = document.createElement('button');
+button.innerText = 'Click Me';
 button.onclick = function () {
-  alert("Button Clicked!");
+  alert('Button Clicked!');
 };
 document.body.appendChild(button);
 ```
@@ -40,19 +40,16 @@ document.body.appendChild(button);
 **Declarative Approach in React:**
 
 ```tsx
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 // Button component
-const Button: FC<{ label: string; onClick: () => void }> = ({
-  label,
-  onClick,
-}) => <button onClick={onClick}>{label}</button>;
+const Button: FC<{ label: string; onClick: () => void }> = ({ label, onClick }) => <button onClick={onClick}>{label}</button>;
 
 // App component composed of multiple Button components
 const App: FC = () => (
   <div>
-    <Button label="Click Me" onClick={() => alert("Button 1 clicked!")} />
-    <Button label="Press Me" onClick={() => alert("Button 2 clicked!")} />
+    <Button label="Click Me" onClick={() => alert('Button 1 clicked!')} />
+    <Button label="Press Me" onClick={() => alert('Button 2 clicked!')} />
   </div>
 );
 ```
@@ -64,7 +61,7 @@ Hooks are special functions that let you use state and other React features in f
 #### `useState` Example:
 
 ```tsx
-import React, { FC, useState } from "react";
+import React, { FC, useState } from 'react';
 
 const Counter: FC = () => {
   const [count, setCount] = useState(0);
@@ -81,7 +78,7 @@ const Counter: FC = () => {
 #### `useEffect` Example:
 
 ```tsx
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from 'react';
 
 const Timer: FC = () => {
   const [seconds, setSeconds] = useState(0);
@@ -138,7 +135,7 @@ const App: FC = () => {
 
 // Component that uses the context
 const UserProfile: FC = () => {
-  const user = useUser;
+  const user = useUser();
   return <div>User: {user.name}</div>;
 };
 ```
